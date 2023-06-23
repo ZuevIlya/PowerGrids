@@ -1,0 +1,24 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}
+JSON POST
+{% endblock %}
+
+{% block content %}
+<div class="features">
+    <h1>Принятый запрос от станции</h1>
+</div>
+<div class="indexInfo">
+    <p>id станции: 35</p>
+    <p>Текущее напряжение: 500</p>
+    <p>Текущая сила тока: 10</p>
+    <p>Текущая нагрузка: 70%</p>
+
+
+    <button class="btn btn-warning">Редактировать параметры электростанции</button><br><br>
+    <button class="btn btn-warning">Отправить ответ</button>
+</div>
+{% endblock %}
+
+
+<p>Токен на работы с JSON {{csrf_token}}</p>

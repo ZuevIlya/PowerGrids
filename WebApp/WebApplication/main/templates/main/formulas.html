@@ -1,0 +1,24 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}
+Статистика по всем параметрам
+{% endblock %}
+
+{% block content %}
+<div class="indexInfo">
+    <h2>Все решения</h2>
+
+    <div class="alert alert-warning">
+        <p>Смещение фаз: {{ results.phase_shift }}</p>
+        <p>Нагрузка: {{ results.simulate_network }}</p>
+        <p>Температура: {{ results.prob_failure }}</p>
+        <p>Перегрузка: {{ results.network_overload }}</p>
+        <p>Частота: {{ results.network_frequency }}</p>
+        <p>Мощность: {{ results.network_power }}</p>
+        <p>Уровень шума и помех: {{ results.network_noise }}</p>
+        <p>Уровень тока и напряжения: {{ results.network_cur_volt }}</p>
+        <p>Сопротивление сети: {{ results.analyze_network }}</p>
+    </div>
+    <button class="btn btn-warning">Отправить JSON объект на станцию</button>
+</div>
+{% endblock %}

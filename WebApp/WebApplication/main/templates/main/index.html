@@ -1,0 +1,37 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}
+Главная страница
+{% endblock %}
+
+{% block content %}
+<div class="features">
+    <h1>Статистика по электрическим сетям</h1>
+</div>
+<div class="indexInfo">
+    <h2>Все данные от устройств</h2>
+    {% for el in devices %}
+    <div class="alert alert-warning">
+        <h5>{{ el.title }}</h5>
+        <p>Номер станции: {{ el.id_station }}</p>
+        <p>Тип: {{ el.type }}</p>
+        <p>Производитель: {{ el.maker }}</p>
+        <p>Дата: {{ el.data }}</p>
+        <p>Напряжение в сети: {{ el.voltage }}В</p>
+        <p>Ток потребления: {{ el.current }}А</p>
+        <p>Коэффициент мощности: {{ el.power_factor }}</p>
+        <p>Частота тока: {{ el.frequency }}Гц</p>
+        <p>Уровень шума в сети: {{ el.noise }}дБ</p>
+        <p>Уровень помех в сети: {{ el.interference }}дБ</p>
+        <p>Фазный угол напряжения: {{ el.voltage_phase_angle }}°</p>
+        <p>Фазный угол тока: {{ el.current_phase_angle }}°</p>
+        <p>Сопротивление проводов и кабелей: {{ el.resistance }} Ом</p>
+        <p>Температура окружающей среды и оборудования: {{ el.temperature }}°C</p>
+        <p>id устройства: {{ el.id }}</p>
+        <a href="{% url 'formulas' device_id=el.id%}">Рассчитать предельные значения</a>
+    </div>
+    {% endfor %}
+    <button class="btn btn-warning">Перейти на страницу отправки ответов</button>
+</div>
+{% endblock %}
+
